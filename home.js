@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         createBtn.classList.add('hidden');
     });
 
-    generateBtn.addEventListener('click', async () => {
+      generateBtn.addEventListener('click', async () => {
         const prompt = document.querySelector('textarea').value;
         if (!prompt.trim()) {
             alert('Please describe your video idea');
@@ -20,12 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
         generateBtn.textContent = 'Generating...';
 
         try {
-            // TODO: Implement API call to video generation service
-            await mockVideoGeneration();
-            shareSection.classList.remove('hidden');
+            // Redirect to the under construction page
+            window.location.href = 'under.html';
+            
+            // The code below is now unreachable but kept for future reference
+            // await mockVideoGeneration();
+            // shareSection.classList.remove('hidden');
         } catch (error) {
             alert('Error generating video. Please try again.');
         } finally {
+            // This will only run if there's an error before the redirect
             generateBtn.disabled = false;
             generateBtn.textContent = 'Generate Video';
         }
