@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Videos - AI Video Creator</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="video.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>AI Video Creator</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="video.html"><i class="fas fa-film"></i> My Videos</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> Create New</a></li>
+                    <li><a href="#"><i class="fas fa-magic"></i> AI Templates</a></li>
+                    <li><a href="#"><i class="fas fa-palette"></i> Style Gallery</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="home.html"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="user-info">
+                    <span id="current-date"></span>
+                    <div class="user-profile">
+                        <span id="user-email"></span>
+                        <div class="avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Header -->
+            <div class="content-header">
+                <h1>My Videos</h1>
+                <div class="content-actions">
+                    <div class="search-container">
+                        <input type="text" id="search-video" placeholder="Search videos...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="view-options">
+                        <button id="grid-view-btn" class="view-btn active"><i class="fas fa-th"></i></button>
+                        <button id="list-view-btn" class="view-btn"><i class="fas fa-list"></i></button>
+                    </div>
+                    <div class="sort-options">
+                        <label for="sort-select">Sort by:</label>
+                        <select id="sort-select">
+                            <option value="date-desc">Newest</option>
+                            <option value="date-asc">Oldest</option>
+                            <option value="name-asc">Name A-Z</option>
+                            <option value="name-desc">Name Z-A</option>
+                            <option value="size-desc">Size (Large-Small)</option>
+                            <option value="size-asc">Size (Small-Large)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Videos Grid -->
+            <div class="videos-container grid-view" id="videos-container">
+                <!-- Videos will be dynamically inserted here -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state hidden" id="empty-state">
+                <div class="empty-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>No videos found</h3>
+                <p>You haven't created any videos yet, or no videos match your search.</p>
+                <button class="primary-btn">Create Your First Video</button>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                <span>Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+                <button class="pagination-btn" disabled><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Video Preview Modal -->
+    <div class="modal" id="video-preview-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-video-title">Video Title</h3>
+                <button class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="video-preview-container">
+                    <!-- Video player will be inserted here -->
+                </div>
+                <div class="video-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Created:</span>
+                        <span id="modal-video-date" class="detail-value">March 1, 2025</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span id="modal-video-duration" class="detail-value">00:30</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Size:</span>
+                        <span id="modal-video-size" class="detail-value">15.2 MB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="secondary-btn"><i class="fas fa-edit"></i> Edit</button>
+                <button class="secondary-btn"><i class="fas fa-share-alt"></i> Share</button>
+                <button class="secondary-btn"><i class="fas fa-download"></i> Download</button>
+                <button class="danger-btn"><i class="fas fa-trash"></i> Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="video.js"></script>
+</body>
+</html>
