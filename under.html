@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction - AI Video Creator</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4F46E5;
+            --secondary-color: #818CF8;
+            --text-color: #1F2937;
+            --bg-color: #F3F4F6;
+            --accent-color: #F59E0B;
+        }
+        
+        .construction-container {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .construction-content {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .construction-icon {
+            font-size: 80px;
+            color: var(--accent-color);
+            margin-bottom: 24px;
+            animation: pulse 2s infinite;
+        }
+        
+        .construction-title {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .construction-message {
+            font-size: 1.2rem;
+            color: #4B5563;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 24px;
+            background-color: #E5E7EB;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 75%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            animation: progress 3s ease-in-out infinite alternate;
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+        
+        .primary-button {
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.2);
+            background-color: var(--secondary-color);
+        }
+        
+        .secondary-button {
+            padding: 12px 24px;
+            background-color: white;
+            color: var(--text-color);
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .secondary-button:hover {
+            background-color: #F9FAFB;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .decoration {
+            position: absolute;
+            font-size: 150px;
+            color: rgba(79, 70, 229, 0.03);
+            z-index: 0;
+        }
+        
+        .decoration-1 {
+            top: -25px;
+            left: -25px;
+            transform: rotate(-15deg);
+        }
+        
+        .decoration-2 {
+            bottom: -25px;
+            right: -25px;
+            transform: rotate(15deg);
+        }
+        
+        .estimated-time {
+            margin-top: 24px;
+            font-size: 0.9rem;
+            color: #6B7280;
+            font-style: italic;
+        }
+        
+        .feature-list {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 32px 0;
+            flex-wrap: wrap;
+        }
+        
+        .feature-item {
+            background-color: #F9FAFB;
+            padding: 16px;
+            border-radius: 8px;
+            width: 180px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+        
+        .feature-desc {
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes progress {
+            0% {
+                width: 30%;
+            }
+            100% {
+                width: 70%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .construction-title {
+                font-size: 2rem;
+            }
+            
+            .construction-message {
+                font-size: 1rem;
+            }
+            
+            .feature-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+            
+            .feature-item {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .primary-button, .secondary-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Video Creator</h1>
+            <nav>
+                <a href="signin.html"><button id="loginBtn">Sign In</button></a>
+                <a href="signup.html"><button id="registerBtn">Sign Up</button></a>
+            </nav>
+        </header>
+
+        <div class="construction-container">
+            <div class="construction-content">
+                <div class="decoration decoration-1">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="decoration decoration-2">
+                    <i class="fas fa-wrench"></i>
+                </div>
+                
+                <div class="construction-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                
+                <h1 class="construction-title">Under Construction</h1>
+                <p class="construction-message">
+                    We're working hard to bring you amazing AI video generation features.
+                    Our team is fine-tuning the algorithms to create stunning, high-quality videos.
+                </p>
+                
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                    <div class="progress-text">75% Complete</div>
+                </div>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div class="feature-title">AI Generation</div>
+                        <div class="feature-desc">Create videos from text with advanced AI</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="feature-title">Style Controls</div>
+                        <div class="feature-desc">Customize the look and feel</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-title">Fast Rendering</div>
+                        <div class="feature-desc">Get your videos in minutes</div>
+                    </div>
+                </div>
+                
+                <p class="estimated-time">Estimated launch: March 15, 2025</p>
+                
+                <div class="action-buttons">
+                    <a href="home.html" class="primary-button">Back to Home</a>
+                    <a href="#" class="secondary-button">Join Waitlist</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 AI Video Creator. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        // Add any interactive elements here
+        document.querySelector('.secondary-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('You have been added to our waitlist! We will notify you when the video generator is ready.');
+        });
+    </script>
+</body>
+</html>
